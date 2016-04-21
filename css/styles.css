@@ -1,0 +1,42 @@
+#palabrasMemorizar ,#palabrasClave{
+	border: 1px solid gray;
+	height: 25px;
+}
+
+#listaCompletada , #comenzarTest, #memorizarPalabras, #respuestas, #resultadosDiv, #imagenesMemorizar, .botonSiguienteImagen, #imagenesClave{
+	display: none;
+}
+
+/*row con las imagenes clave a la izq y las a memorizar a la derecha*/
+.imagenes, #formularioLongitudLista{
+	margin: 20px;
+}
+
+#imagenesMemorizar, #imagenesClave{
+	height: 500px;
+	/*width: 40%;*/
+}
+
+@media (max-width: 500px) {
+	#imagenesMemorizar, #imagenesClave{
+		height: 250px;
+		/*width: auto;*/
+		margin-top: 50px;
+	}
+	#palabrasClave{
+		margin-left: 0!important;
+	}
+	/*.botones{
+		display: block;
+	}*/
+	*{
+		font-size: 15px;
+
+	}
+}
+
+#numeroRespuesta{
+	padding-right: 5px !important;
+}
+
+

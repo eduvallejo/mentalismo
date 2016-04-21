@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>title</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <script src="js/scripts.js"></script>
+        <script src="js/jquery.js"></script>
+
+        <script type="text/javascript">
+            // funcion q detecta la tecla q presionas(trato de borrar la foto solo con pulsar r)
+            $(function(){
+                // Let's define a generic event handler that will look at
+                // the key being pressed and log it out to the console.
+                var keyHandler = function( event ){
+
+                    var keyCode = event.which;
+                    var keyChar = String.fromCharCode( keyCode );
+                    // Log the key captured in the event data.
+                    if (keyChar == 5) {
+                        // siguienteImg();
+                        siguienteImgButton5();
+                       
+                    }else if (keyChar == 6){
+                        siguiente();
+                    }else if (keyChar == 4){
+                        anterior();
+                    } //else if (keyChar == 8){
+                    //     anteriorPalabraTest();
+                    // }else if (keyChar == 9){
+                    //     saltarPalabraTest();
+                    // }
+                };
+                // Now, let's try binding both the key-down and key-press
+                // events to listen for the key and combos.
+                $( "body" ).on( "keydown keypress", keyHandler );
+            });
+        </script>
+    </head>
+    <body>
+    	<div class="row" id="formularioLongitudLista">
+    		<span class="col-xs-4" style="padding: 6px 32px;">Cuántas palabras quieres memorizar?</span>
+    	    <div class="col-xs-4 ">
+    	        <div class="input-group">
+    	            <input type="text" class="form-control" placeholder="desde 5 a 470" id="longitudLista"/> 
+    	            <span class="input-group-btn">
+    	                <button class="btn btn-default" type="button" onclick='enviarLongitudLista()'>Aceptar</button>
+    	            </span>
+    	        </div><!-- /input-group -->
+    	    </div><!-- /.col-lg-4 -->
+    	</div><!-- /.row -->
+
+        <!-- se muestran cada par de palabra clave y palabra a memorizar -->
+        <div id="memorizarPalabras">
+            <div id="palabrasClave" class="col-xs-offset-3 col-xs-3"></div>
+            <div id="palabrasMemorizar" class="col-xs-3"></div>
+            <!-- <img class="pictures" src=""> -->
+            <input type="button" onclick="anterior();" value="anterior" class="botones" />
+            
+            <input type="button" onclick="siguiente();" value="siguiente" class="botones"/>
+        </div>
+        <!-- imagenes a memorizar -->
+        <div class="container" style="height: 100%">
+            <div class="row imagenes" style="height: 100%">
+                <img id="imagenesClave" src="" class="col-xs-6"></img>
+                <img id="imagenesMemorizar" src="" class="col-xs-offset col-xs-6"></img>
+                <input type="button" class="col-xs-offset-8 col-xs-2 botonSiguienteImagen" onclick="siguienteImgButton5();" value="imágenes alternativas" />
+            </div>
+        </div>
+
+        <!--mensaje de finalización de la muestra de palabras  -->
+        <div class="row" id="mensajeListaCompleta">
+            <div id="listaCompletada" class="col-xs-offset-5">Lista completada
+            </div>
+            <p></p>
+
+            <!-- botón para comenzar a entrar lo recordado -->
+            <span id="comenzarTest" class="input-group-btn">
+                <button class="btn btn-default" type="button" onclick='comenzarPrueba()'>Comenzar Prueba</button>
+            </span>
+        </div>  
+
+        <!-- entrada de las respuestas -->
+        <div class="row" id="respuestas">
+            <span id="numeroRespuesta" class="col-offset-xs-1 col-xs-1" style="padding: 6px 32px;"></span>
+            <div class="col-xs-5">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Respuesta actual: undefined" onkeydown="if (event.keyCode == 13) document.getElementById('respuestasButton').click()" id="valorRespuesta" required/> 
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" onclick='siguientePalabraTest()' id="respuestasButton">Aceptar palabra</button>
+                    </span>
+                    <!-- volver atrás -->
+                    <span class="input-group-btn">
+                        <button class="btn btn-default col-xs-offset-2" type="button" onclick='anteriorPalabraTest()' id="respuestasButtonAnterior">&lt;--</button>
+                    </span>
+                    <!-- volver adelante -->
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" onclick='saltarPalabraTest()' id="respuestasButtonSaltar">--&gt;</button>
+                    </span>
+                </div><!-- /input-group -->
+            </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+
+        <!-- se muestran los fallos del test y num d errores -->
+        <div id="resultadosDiv">
+            <p class = "erroresP">ERRORES</p>
+            <div id="resultadoIntroducido" class="col-xs-3"></div>
+            <div id="resultadosMemorizar" class="col-xs-3"></div>
+        </div>
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    </body>
+</html>
