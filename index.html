@@ -41,8 +41,8 @@
     </head>
     <body>
     	<div class="row" id="formularioLongitudLista">
-    		<span class="col-xs-4" style="padding: 6px 32px;">Cuántas palabras quieres memorizar?</span>
-    	    <div class="col-xs-4 ">
+    		<span class="col-xs-12 col-sm-6" style="padding: 6px 15px;">Cuántas palabras quieres memorizar?</span>
+    	    <div class="col-xs-5 col-sm-6">
     	        <div class="input-group">
     	            <input type="text" class="form-control" placeholder="desde 5 a 470" id="longitudLista"/> 
     	            <span class="input-group-btn">
@@ -54,8 +54,8 @@
 
         <!-- se muestran cada par de palabra clave y palabra a memorizar -->
         <div id="memorizarPalabras">
-            <div id="palabrasClave" class="col-xs-offset-3 col-xs-3"></div>
-            <div id="palabrasMemorizar" class="col-xs-3"></div>
+            <div id="palabrasClave" class="col-sm-offset-3 col-sm-3"></div>
+            <div id="palabrasMemorizar" class="col-sm-3"></div>
             <!-- <img class="pictures" src=""> -->
             <input type="button" onclick="anterior();" value="anterior" class="botones" />
             
@@ -66,7 +66,7 @@
             <div class="row imagenes" style="height: 100%">
                 <img id="imagenesClave" src="" class="col-xs-6"></img>
                 <img id="imagenesMemorizar" src="" class="col-xs-offset col-xs-6"></img>
-                <input type="button" class="col-xs-offset-8 col-xs-2 botonSiguienteImagen" onclick="siguienteImgButton5();" value="imágenes alternativas" />
+                <input type="button" class="col-xs-offset-7 col-xs-4 botonSiguienteImagen" onclick="siguienteImgButton5();" value="+imágenes" />
             </div>
         </div>
 
